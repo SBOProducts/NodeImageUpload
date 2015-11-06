@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 
 
@@ -11,8 +13,9 @@ router.get('/', function(req, res){
 });
 
 // post request to the /test path
-router.post('/', function (req, res) {
+router.post('/', upload.single('MyFile'), function (req, res) {
 	console.log('post request called');
+	console.log(req.file);  	
   	res.send('POST request handler');
 });
 
