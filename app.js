@@ -20,10 +20,12 @@ app.use(express.static(__dirname + '/public'));
 
 
 
+
+// tell the app to listen for requests on port 3000
+app.listen(3000);
+
 // hook up express app to the expport
 module.exports = app;
-
-app.listen(3000);
 
 // show that we're started
 console.log("The app is up and running!");
